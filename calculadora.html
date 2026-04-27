@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+</head>
+<body>
+    <div style="text-align: center;">
+        <h1>Cuntculator</h1>
+    </div>
+    <div class="Fondo_Calculadora">
+        <div class="Display"></div>
+        <div class="Grid_Bg">
+            <div class="Grid">
+                
+                <button class="button">C</button>
+                <button class="button">=</button>
+                <button class="button">()</button>
+                <button class="button">+</button>
+                <button class="button">9</button>
+                <button class="button">8</button>
+                <button class="button">7</button>
+                <button class="button">÷</button>
+                <button class="button">6</button>
+                <button class="button">5</button>
+                <button class="button">4</button>
+                <button class="button">*</button>
+                <button class="button">3</button>
+                <button class="button">2</button>
+                <button class="button">1</button>
+                <button class="button">-</button>
+                <button class="button">0</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+<style>
+    body { 
+        background-color: rgb(253, 243, 251); 
+        background-image: url('Fondo.jpg');
+        background-size: cover;
+        background-position: center;
+    }
+    .Fondo_Calculadora{
+        background-color: rgb(239, 131, 217);
+        width: 400px;
+        height: 600px;
+        border-radius: 20px;
+        border: 3px solid #b12681;
+        margin: auto;
+        align-items: center;
+        box-shadow: 6px 6px 1px 1px #b12681;
+    }
+    .Display{
+        background-color: rgb(223, 247, 255);
+        width: 355px;
+        height: 100px;
+        border: 3px solid #558185;
+        box-shadow: 6px 6px 1px 1px #558185;
+        border-radius: 20px;
+        position: absolute;
+        top: 15%;
+        left: 38%;
+    }
+    .Grid_Bg{
+        box-shadow: 6px 6px 0px 0px #a96195;
+        border: 3px solid #a96195;
+        background-color: rgb(255, 209, 249);
+        width: 355px;
+        height: 400px;
+        border-radius: 20px;
+        position: absolute;
+        top: 32%;
+        left: 38%;
+    }
+    .Grid{
+        display: grid;
+        gap: 10px;
+        padding: 30px;
+        padding-top: 30px;
+        grid-template-columns: repeat(4, 1fr);
+    }
+    .button{
+        background-color: rgb(225, 255, 209);
+        box-shadow: 6px 6px 0px 0px #729957;
+        border: 2px solid #729957;
+        border-radius: 100px;
+        font-size: 20px;
+        height: 60px;
+    }
+</style>
+</html>
