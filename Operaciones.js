@@ -5,6 +5,7 @@ let Operator;
 let expression = "";
 
 function Calcular(fullAr) {
+    clearDisplay();
     let TempString = fullAr;
 
     while (TempString.includes("(")) {
@@ -106,4 +107,14 @@ function subCalcular(arr, symbol) {
             break;
     }
     return BeginStr + TempResult + EndStr;
+}
+
+function clearDisplay(){
+    expression = "";
+    document.getElementById("display").innerText = expression;
+} 
+
+function appendToDisplay(value) {
+    expression += value;
+    document.getElementById("display").innerText = expression;
 }
