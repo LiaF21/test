@@ -20,8 +20,6 @@ function Calcular(fullAr) {
     while (TempString.includes("+")) {
         TempString = subCalcular(TempString, "+");
     }
-    clearDisplay();
-    appendToDisplay(TempString);
     while (TempString.indexOf("-", 1) !== -1) {
         TempString = subCalcular(TempString, "-");
     }
@@ -109,12 +107,18 @@ function subCalcular(arr, symbol) {
     return BeginStr + TempResult + EndStr;
 }
 
-function clearDisplay(){
+function clearDisplay() {
     expression = "";
     document.getElementById("display").innerText = expression;
-} 
+}
 
 function appendToDisplay(value) {
     expression += value;
     document.getElementById("display").innerText = expression;
+}
+
+function appendResult() {
+    let expr = document.getElementById("display").innerText;
+    clearDisplay();
+    document.getElementById("display").innerText = Calcular(expr);
 }
