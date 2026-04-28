@@ -2,7 +2,7 @@ let RightNumber = "";
 let LeftNumber = "";
 let TempResult;
 let Operator;
-
+let expression = "";
 
 function Calcular(fullAr) {
     TempString = fullAr;
@@ -10,8 +10,8 @@ function Calcular(fullAr) {
     while (fullAr.includes("*")) {
         TempString = calcularMult(TempString);
     }
-
-
+    clearDisplay();
+    appendToDisplay(TempString);
 }
 
 function calcularMult(arr) {
@@ -66,6 +66,16 @@ function division(a, b) {
         return a / b;
     }
     return "Error: Division por cero no permitida.";
+}
+
+function clearDisplay(){
+    expression = "";
+    document.getElementById("display").innerText = expression;
+} 
+
+function appendToDisplay(value) {
+    expression += value;
+    document.getElementById("display").innerText = expression;
 }
 
 let resultado = calcularMult("3+56*24-4");
