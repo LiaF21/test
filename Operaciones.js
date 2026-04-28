@@ -1,37 +1,51 @@
 let RightNumber = "";
 let LeftNumber = "";
 let TempResult;
+let Result;
 
 function Calcular(fullAr) {
-    TempString = fullAr;
+    let TempString = fullAr;
 
+    while (TempString.includes("(")) {
+        TempString = subCalcularParen(TempString);
+    }
     while (TempString.includes("*")) {
         TempString = subCalcular(TempString, "*");
     }
-
     while (TempString.includes("/")) {
         TempString = subCalcular(TempString, "/");
     }
-
     while (TempString.includes("+")) {
         TempString = subCalcular(TempString, "+");
     }
-
-    while (TempString.includes("-")) {
-        if (TempString[0] === '-') { break; }
+    while (TempString.indexOf("-", 1) !== -1) {
         TempString = subCalcular(TempString, "-");
     }
-
     return TempString
 }
 
-function subCalcular(arr, symbol) {
-    RightNumber = "";
-    LeftNumber = "";
+function subCalcularParen(arr) {
+    let inEnd = arr.indexOf(')');
+    let inBegin = arr.lastIndexOf('(', inEnd);
 
-    index = arr.indexOf(symbol);
-    inBegin = index;
-    inEnd = index;
+    let TempInside = arr.slice(inBegin + 1, inEnd);
+    let TempResult = Calcular(TempInside);
+    return arr.slice(0, inBegin) + TempResult + arr.slice(inEnd + 1);
+}
+
+function subCalcular(arr, symbol) {
+    let RightNumber = "";
+    let LeftNumber = "";
+
+    let index;
+    if (symbol === "-") {
+        index = arr.indexOf(symbol, 1);
+    } else {
+        index = arr.indexOf(symbol);
+    }
+
+    let inBegin = index;
+    let inEnd = index;
 
     // a donde inicia 
     while (inBegin > 0) {
@@ -64,8 +78,8 @@ function subCalcular(arr, symbol) {
         }
     }
 
-    BeginStr = arr.slice(0, inBegin);
-    EndStr = arr.slice(inEnd + 1, arr.length);
+    let BeginStr = arr.slice(0, inBegin);
+    let EndStr = arr.slice(inEnd + 1, arr.length);
 
     switch (symbol) {
         case "+":
@@ -90,7 +104,3 @@ function subCalcular(arr, symbol) {
     }
     return BeginStr + TempResult + EndStr;
 }
-
-
-let resultado = Calcular("2-4*3+5/2");
-console.log(resultado); 
