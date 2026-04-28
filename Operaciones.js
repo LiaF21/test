@@ -1,7 +1,8 @@
 let RightNumber = "";
 let LeftNumber = "";
 let TempResult;
-let Result;
+let Operator;
+let expression = "";
 
 function Calcular(fullAr) {
     let TempString = fullAr;
@@ -18,6 +19,8 @@ function Calcular(fullAr) {
     while (TempString.includes("+")) {
         TempString = subCalcular(TempString, "+");
     }
+    clearDisplay();
+    appendToDisplay(TempString);
     while (TempString.indexOf("-", 1) !== -1) {
         TempString = subCalcular(TempString, "-");
     }
