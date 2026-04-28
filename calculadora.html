@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora</title>
 </head>
+
 <body>
     <div style="text-align: center;">
         <h1>Calculator</h1>
@@ -15,34 +17,35 @@
             <div class="Grid">
                 <button class="button1" onClick="clearDisplay()">C</button>
                 <button class="button1" onClick="appendToDisplay('(')">(
-                <button class="button1" onClick="appendToDisplay(')')">)</button>
-                <button class="button1" onClick="appendToDisplay('+')">+</button>
-                <button class="button2" onClick="appendToDisplay('9')">9</button>
-                <button class="button2" onClick="appendToDisplay('8')">8</button>
-                <button class="button2" onClick="appendToDisplay('7')">7</button>
-                <button class="button2" onClick="appendToDisplay('/')">÷</button>
-                <button class="button3" onClick="appendToDisplay('6')">6</button>
-                <button class="button3" onClick="appendToDisplay('5')">5</button>
-                <button class="button3" onClick="appendToDisplay('4')">4</button>
-                <button class="button3" onClick="appendToDisplay('*')">*</button>
-                <button class="button4" onClick="appendToDisplay('3')">3</button>
-                <button class="button4" onClick="appendToDisplay('2')">2</button>
-                <button class="button4" onClick="appendToDisplay('1')">1</button>
-                <button class="button4" onClick="appendToDisplay('-')">-</button>
-                <button class="button5" onClick="appendToDisplay('0')">0</button>
-                <button class="button5" onClick="Calcular(expression)">=</button>
+                    <button class="button1" onClick="appendToDisplay(')')">)</button>
+                    <button class="button1" onClick="appendToDisplay('+')">+</button>
+                    <button class="button2" onClick="appendToDisplay('9')">9</button>
+                    <button class="button2" onClick="appendToDisplay('8')">8</button>
+                    <button class="button2" onClick="appendToDisplay('7')">7</button>
+                    <button class="button2" onClick="appendToDisplay('/')">÷</button>
+                    <button class="button3" onClick="appendToDisplay('6')">6</button>
+                    <button class="button3" onClick="appendToDisplay('5')">5</button>
+                    <button class="button3" onClick="appendToDisplay('4')">4</button>
+                    <button class="button3" onClick="appendToDisplay('*')">*</button>
+                    <button class="button4" onClick="appendToDisplay('3')">3</button>
+                    <button class="button4" onClick="appendToDisplay('2')">2</button>
+                    <button class="button4" onClick="appendToDisplay('1')">1</button>
+                    <button class="button4" onClick="appendToDisplay('-')">-</button>
+                    <button class="button5" onClick="appendToDisplay('0')">0</button>
+                    <button class="button5" onClick="appendResult()">=</button>
             </div>
         </div>
     </div>
     <script src="Operaciones.js"></script>
 </body>
 <style>
-    body { 
+    body {
         background-image: url('Fondo.jpg');
         background-size: cover;
         background-position: center;
     }
-    .Fondo_Calculadora{
+
+    .Fondo_Calculadora {
         background-color: rgb(239, 131, 217);
         width: 400px;
         height: 600px;
@@ -52,7 +55,8 @@
         align-items: center;
         box-shadow: 6px 6px 1px 1px #b12681;
     }
-    .Display{
+
+    .Display {
         background-color: rgb(223, 247, 255);
         width: 355px;
         height: 100px;
@@ -71,7 +75,8 @@
         text-overflow: ellipsis;
         text-shadow: 2px 2px #558185;
     }
-    .Grid_Bg{
+
+    .Grid_Bg {
         box-shadow: 6px 6px 0px 0px #a96195;
         border: 3px solid #a96195;
         background-color: rgb(255, 209, 249);
@@ -82,71 +87,84 @@
         top: 32%;
         left: 38%;
     }
-    .Grid{
+
+    .Grid {
         display: grid;
         gap: 10px;
         padding: 30px;
         padding-top: 30px;
         grid-template-columns: repeat(4, 1fr);
     }
-    .button1{
+
+    .button1 {
         background-color: rgb(225, 255, 209);
         box-shadow: 6px 6px 0px 0px #8ebe6b;
         border: 2px solid #8ebe6b;
         border-radius: 100px;
         font-size: 20px;
         height: 60px;
-        &:hover{
+
+        &:hover {
             background-color: rgb(166, 203, 152);
         }
     }
-    .button2{
+
+    .button2 {
         background-color: rgb(255, 241, 172);
         box-shadow: 6px 6px 0px 0px #d7d376;
         border: 2px solid #d7d376;
         border-radius: 100px;
         font-size: 20px;
         height: 60px;
-        &:hover{
+
+        &:hover {
             background-color: rgb(248, 234, 167);
         }
     }
-    .button3{
+
+    .button3 {
         background-color: rgb(172, 251, 255);
         box-shadow: 6px 6px 0px 0px #76bbd7;
         border: 2px solid #76bbd7;
         border-radius: 100px;
         font-size: 20px;
         height: 60px;
-        &:hover{
+
+        &:hover {
             background-color: rgb(152, 219, 226);
         }
     }
-    .button4{
+
+    .button4 {
         background-color: rgb(197, 172, 255);
         box-shadow: 6px 6px 0px 0px #aa76d7;
         border: 2px solid #aa76d7;
         border-radius: 100px;
         font-size: 20px;
         height: 60px;
-        &:hover{
+
+        &:hover {
             background-color: rgb(203, 152, 226);
         }
     }
-    .button5{
+
+    .button5 {
         background-color: rgb(252, 193, 135);
         box-shadow: 6px 6px 0px 0px #d7a876;
         border: 2px solid #d7a876;
         border-radius: 100px;
         font-size: 20px;
         height: 60px;
-        &:hover{
+
+        &:hover {
             background-color: rgb(237, 181, 126);
         }
     }
-    @font-face{
-        font-family:'digital-clock-font';
+
+    @font-face {
+        font-family: 'digital-clock-font';
         src: url('digital-7.regular.ttf');
-        }
+    }
 </style>
+
 </html>
